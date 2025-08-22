@@ -1,4 +1,5 @@
 export default async function handler(req, res) {
+  console.log('Key starts with', process.env.KIMI_API_KEY?.slice(0, 8));
   if (req.method !== 'POST') return res.status(405).end();
 
   const { name } = req.body;
@@ -32,4 +33,5 @@ export default async function handler(req, res) {
   } catch (e) {
     res.status(500).json({ error: e.message });
   }
+
 }
